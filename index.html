@@ -5,69 +5,184 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BPS Convent School</title>
     <style>
-        /* Add your CSS styles here */
+        /* Your CSS styles go here */
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
+
         header {
             background-color: #007bff;
             color: #fff;
             text-align: center;
             padding: 20px;
-            position: relative; /* To allow positioning of the logo */
+            position: relative;
         }
+
+        .logo {
+            width: 100px; /* Adjust the width as needed */
+            height: auto; /* This keeps the aspect ratio */
+        }
+
+        .logo-link {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
         nav {
             background-color: #333;
             color: #fff;
-            display: flex;
-            justify-content: center;
+            padding: 10px;
+            text-align: center;
         }
+
         nav a {
             color: #fff;
             text-decoration: none;
             padding: 10px 20px;
         }
+
         nav a:hover {
-            background-color: #444;
+            background-color: #555;
         }
-        .introduction {
+
+        section {
             padding: 20px;
-            background-color: #f9f9f9;
+            margin-bottom: 30px;
         }
-        .logo {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 100px; /* Adjust the width as needed */
-            height: auto; /* This keeps the aspect ratio */
-        }
+
+        /* Additional styles for specific sections can be added here */
+
     </style>
 </head>
 <body>
     <!-- Header Section -->
     <header>
-        <img class="logo" src="your-logo.png" alt="BPS Convent School Logo">
+        <a href="index.html" class="logo-link">
+            <img class="logo" src="logo.png" alt="BPS Convent School Logo">
+        </a>
         <h1>BPS Convent School</h1>
     </header>
 
     <!-- Menu Section -->
     <nav>
-        <a href="#">Home</a>
-        <a href="#">Introduction</a>
-        <!-- Add more menu links here -->
+        <a href="#home">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#academics">Academics</a>
+        <a href="#admission">Admission</a>
+        <a href="#facilities">Facilities</a>
+        <a href="#tc">Transfer Certificate (TC)</a>
+        <a href="#contact">Contact</a>
+        <a href="#download">Download</a>
+        <a href="#useful-links">Useful Links</a>
     </nav>
 
-    <!-- Introduction Section -->
-    <div class="introduction">
-        <h2>Introduction</h2>
-        <p>
-            The founders of Bhartiya Shikshan Sansthan, with a zeal and a visionary outlook, have demonstrated that anything worthwhile can be achieved through sincerity of purpose, right execution and implementation. Within a relatively short span of time, Bhartiya Shikshan Sansthan is today counted one of the best institutions in Rajasthan. Bhartiya Shikshan Sansthan is committed to providing world-class academics, infrastructure, and a highly disciplined atmosphere.
-        </p>
-    </div>
+    <!-- Home (Introduction, Founder, Secretary) Section -->
+    <section id="home">
+        <!-- Introduction Section -->
+        <div class="introduction">
+            <h2>Introduction of BPS</h2>
+            <p>
+                The founders of Bhartiya Shikshan Sansthan, with a zeal and a visionary outlook, have demonstrated that anything worthwhile can be achieved through sincerity of purpose, right execution, and implementation. Within a relatively short span of time, Bhartiya Shikshan Sansthan is today counted as one of the best institutions in Rajasthan. Bhartiya Shikshan Sansthan is committed to providing world-class academics, infrastructure, and a highly disciplined atmosphere.
+            </p>
+        </div>
 
-    <!-- Add more sections as needed -->
+        <!-- Founder Section -->
+        <div class="founder-container">
+            <h2>Founder of BPS</h2>
+            <p>
+                Name of the founder: Ramswaroop Mahala
+                The Vidyalaya is situated in peaceful and pollution-free lap of nature in the area of Manasiya Road, Laxmangarh, Sikar (Raj.). The Vidyalaya runs in a magnificent triple-storeyed building with well-furnished big classrooms. It is rightly said, "Success rarely comes from making just a few big efforts. Success almost always is the result of small multiplied again and again". Our aim in education is to develop several distinct dimensions in which our students must equip themselves. These dimensions - physical, intellectual, patriotism, and spiritual - distinguish them from others and make them committed to the task of safeguarding this great nation of ours founded on twin ideals of secularism and democracy.
+            </p>
+        </div>
 
+        <!-- Secretary Section -->
+        <div class="secretary-container">
+            <h2>Secretary of BPS</h2>
+            <p>
+                Name of Secretary: Kavita Mahala
+                BPS Convent School is opened with the ideology to nourish and nurture the potential of individuals to the extent of perfection. Here we endeavor to spread the light of education all around. The school is missioned to impart excellence in individuals and prepare world-class citizens, professionals, leaders, bureaucrats, and intellectuals. Education is not just a process of giving knowledge for a high-profiled job but a lifelong process that creates and guides our students to become morally upright citizens. BPS Convent School provides a stimulating and enriched environment with the best-in-class infrastructure for learning through Smart Classes, well-equipped labs, Class Room Teaching, and Co-curricular activities. I would like to extend my heartiest felicitations and gratitude to all the parents for having faith in our institution. We assure you to do our very best always.
+            </p>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities">
+        <h2>Facilities</h2>
+        <!-- Your facilities content goes here -->
+    </section>
+
+    <!-- Transfer Certificate (TC) Section -->
+    <section id="tc">
+        <h2>Transfer Certificate (TC) Upload</h2>
+        <p>Please upload your Transfer Certificate (TC) using the form below:</p>
+
+        <!-- TC Upload Form -->
+        <form action="upload_tc.php" method="post" enctype="multipart/form-data">
+            <label for="tc_file">Select TC File:</label>
+            <input type="file" id="tc_file" name="tc_file" required>
+            <br>
+            <input type="submit" value="Upload TC" name="submit">
+        </form>
+
+        <!-- Display Uploaded TCs (Optional) -->
+        <h3>Uploaded TCs:</h3>
+        <ul>
+            <!-- Use server-side code to fetch and display uploaded TCs -->
+            <?php
+            // Example PHP code to display uploaded TCs
+            $tc_files_directory = "tc_uploads/"; // Directory where TC files are stored
+            $uploaded_tcs = scandir($tc_files_directory);
+            foreach ($uploaded_tcs as $tc) {
+                if ($tc !== '.' && $tc !== '..') {
+                    echo "<li><a href='$tc_files_directory$tc' target='_blank'>$tc</a></li>";
+                }
+            }
+            ?>
+        </ul>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <p>Please upload images to add to the gallery:</p>
+
+        <!-- Image Upload Form -->
+        <form action="upload_image.php" method="post" enctype="multipart/form-data">
+            <label for="image_file">Select Image:</label>
+            <input type="file" id="image_file" name="image_file" accept="image/*" required>
+            <br>
+            <input type="submit" value="Upload Image" name="submit">
+        </form>
+
+        <!-- Display Uploaded Images -->
+        <h3>Uploaded Images:</h3>
+        <div class="gallery-images">
+            <!-- Use server-side code to fetch and display uploaded images -->
+            <?php
+            $image_files_directory = "gallery_uploads/"; // Directory where image files are stored
+            $uploaded_images = scandir($image_files_directory);
+            foreach ($uploaded_images as $image) {
+                if ($image !== '.' && $image !== '..') {
+                    echo "<img src='$image_files_directory$image' alt='Gallery Image'>";
+                }
+            }
+            ?>
+        </div>
+    </section>
+
+    <!-- Your other sections go here -->
+
+    <!-- Footer Section -->
+    <footer>
+        <!-- Your footer content goes here -->
+    </footer>
 </body>
 </html>
